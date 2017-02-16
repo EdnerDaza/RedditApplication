@@ -1,24 +1,38 @@
 package com.ednerdaza.codigoriginal.redditapplication.mvc.controllers.activities;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.ednerdaza.codigoriginal.redditapplication.R;
+import com.ednerdaza.codigoriginal.redditapplication.classes.helpers.Helpers;
+import com.ednerdaza.codigoriginal.redditapplication.classes.utilities.Config;
 
 /**
  * Created by administrador on 16/02/17.
  */
 public class MainActivity extends AppCompatActivity {
 
+    private Context mContext;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Log.v(Config.LOG_TAG, "// ON CREATE (savedInstanceState : "+savedInstanceState+") //\n"+this);
+
+        mContext = this;
+        Helpers.setContexto(mContext);
+        Helpers.setActivity(this);
+        Helpers.haveStoragePermission();
+
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
