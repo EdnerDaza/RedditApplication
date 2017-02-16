@@ -9,10 +9,14 @@ import android.view.View;
 import android.view.WindowManager;
 
 import com.ednerdaza.codigoriginal.redditapplication.R;
+import com.ednerdaza.codigoriginal.redditapplication.mvc.controllers.base.VolleyQueue;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ * Created by administrador on 16/02/17.
+ */
 public class SplashActivity extends AppCompatActivity
 {
 
@@ -61,6 +65,9 @@ public class SplashActivity extends AppCompatActivity
 
 
         setContentView(R.layout.activity_splash);
+
+        //Se crea la cola de peticiones
+        VolleyQueue.createQueue(getApplicationContext());
 
         task = new TimerTask()
         {

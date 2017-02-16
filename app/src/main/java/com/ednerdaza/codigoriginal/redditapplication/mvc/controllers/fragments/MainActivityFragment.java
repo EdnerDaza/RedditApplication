@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import com.ednerdaza.codigoriginal.redditapplication.R;
 
 /**
- * A placeholder fragment containing a simple view.
+ * Created by administrador on 16/02/17.
  */
 public class MainActivityFragment extends Fragment {
 

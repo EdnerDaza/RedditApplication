@@ -11,6 +11,9 @@ import android.view.MenuItem;
 
 import com.ednerdaza.codigoriginal.redditapplication.R;
 
+/**
+ * Created by administrador on 16/02/17.
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override
