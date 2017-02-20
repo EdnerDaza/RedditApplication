@@ -18,7 +18,6 @@ import com.ednerdaza.codigoriginal.redditapplication.mvc.models.entities.Childre
 import com.ednerdaza.codigoriginal.redditapplication.mvc.models.entities.Data;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

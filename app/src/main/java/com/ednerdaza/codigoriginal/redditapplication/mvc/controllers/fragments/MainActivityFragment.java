@@ -26,11 +26,6 @@ public class MainActivityFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
 
-       /* mCoordinatorLayout = (CoordinatorLayout)view.findViewById(R.id.coordinatorLayout);
-
-        mRecyclerView = (RecyclerView)view.findViewById(R.id.rv_root);
-        mRecyclerView.setHasFixedSize(true);*/
-
         return view;
     }
 }

@@ -3,6 +3,8 @@
     <string name="action_settings">Settings</string>
     <string name="ed_logo">Edner Mobile</string>
     <string name="wait_loading">Cargando. Por favor espere&#8230;</string>
+    <string name="wait_loading_news">Cargando Noicias. Por favor espere&#8230;</string>
+    <string name="wait_loading_comments">Cargando Comentarios. Por favor espere&#8230;</string>
     <string name="error_listener">Hubo un error inesperado, por favor intente de nuevo</string>
     <string name="error_conexion">No es posible conectar con %1$s. Asegúrate de tener conexión a
         internet o inténtalo de nuevo más tarde.</string>
