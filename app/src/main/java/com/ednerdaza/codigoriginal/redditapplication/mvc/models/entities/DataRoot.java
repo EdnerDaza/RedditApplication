@@ -1,7 +1,6 @@
 package com.ednerdaza.codigoriginal.redditapplication.mvc.models.entities;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -14,36 +13,40 @@ public class DataRoot implements Serializable {
     public String after;
     public String before;
 
-    public String getModhash() {
-        return modhash;
-    }
+    //region GETTERS Y SETTERS
 
-    public void setModhash(String modhash) {
-        this.modhash = modhash;
-    }
+        public String getModhash() {
+            return modhash;
+        }
 
-    public List<Children> getChildren() {
-        return children;
-    }
+        public void setModhash(String modhash) {
+            this.modhash = modhash;
+        }
 
-    public void setChildren(List<Children> children) {
-        this.children = children;
-    }
+        public List<Children> getChildren() {
+            return children;
+        }
 
-    public String getAfter() {
-        return after;
-    }
+        public void setChildren(List<Children> children) {
+            this.children = children;
+        }
 
-    public void setAfter(String after) {
-        this.after = after;
-    }
+        public String getAfter() {
+            return after;
+        }
 
-    public String getBefore() {
-        return before;
-    }
+        public void setAfter(String after) {
+            this.after = after;
+        }
 
-    public void setBefore(String before) {
-        this.before = before;
-    }
+        public String getBefore() {
+            return before;
+        }
+
+        public void setBefore(String before) {
+            this.before = before;
+        }
+
+    //endregion
 
 }

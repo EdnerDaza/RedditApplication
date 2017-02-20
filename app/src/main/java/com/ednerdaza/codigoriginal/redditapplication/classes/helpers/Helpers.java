@@ -23,7 +23,6 @@ import android.widget.TextView;
 
 import com.ednerdaza.codigoriginal.redditapplication.R;
 import com.ednerdaza.codigoriginal.redditapplication.classes.utilities.Config;
-import com.ednerdaza.codigoriginal.redditapplication.mvc.controllers.activities.MainActivity;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -86,6 +85,11 @@ public class Helpers {
 
     private static Intent intent;
 
+    /**
+     * METODO QUE VERIFICA SI HAY UNA RED DISPONIBLE DE CONEXION
+     * @param context
+     * @return
+     */
     public static boolean isNetworkAvailable(Context context){
         Log.v(Config.LOG_TAG, "// isNetworkAvailable(context : "+context+") //\n"+"HELPERS.CLASS");
         ConnectivityManager connectivityManager = (ConnectivityManager)context.
@@ -98,20 +102,22 @@ public class Helpers {
             boolean isWiFi = activeNetworkInfo.getType() == connectivityManager.TYPE_WIFI;
             boolean isMobile = activeNetworkInfo.getType() == connectivityManager.TYPE_MOBILE;
             if (isWiFi) {
-                //Toast.makeText(context, "Connected via WiFi", Toast.LENGTH_SHORT).show();
                 Log.v(Config.LOG_TAG, "-- CONECTADO VIA WIFI \n"+"HELPERS.CLASS");
             } else if (isMobile) {
-                //Toast.makeText(context, "Connected via Mobile", Toast.LENGTH_SHORT).show();
                 Log.v(Config.LOG_TAG, "-- CONECTADO VIA MOBILE \n"+"HELPERS.CLASS");
             }
         } else {
-            //Toast.makeText(context, "No Connection", Toast.LENGTH_SHORT).show();
             Log.v(Config.LOG_TAG, "-- NO CONECTADO \n"+"HELPERS.CLASS");
         }
 
         return isConnected;
     }
 
+    /**
+     * METODO QUE REGRESA UN ALERT DIALOG SI HAY UNA RED DISPONIBLE DE CONEXION O NO
+     * @param message
+     * @return
+     */
     public static AlertDialog customDialogConnection(String message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         //builder.setTitle(resources.getString(R.string.store));
@@ -140,6 +146,11 @@ public class Helpers {
 
     }
 
+    /**
+     * METODO QUE REGRESA UN ALERT DIALOG SI HAY UNA MENSAJE QUE NECESITE SER MOSTRADO
+     * @param message
+     * @return
+     */
     public static AlertDialog customDialogMessage(String message){
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -160,6 +171,11 @@ public class Helpers {
 
     } // FIN DEL METODO
 
+    /**
+     * METODO QUE REGRESA UN ALERT DIALOG SI HAY UNA MENSAJE DE DESCARGA QUE NECESITE SER MOSTRADO
+     * @param message
+     * @return
+     */
     public static AlertDialog customDialogDownload (String message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         //builder.setTitle(resources.getString(R.string.store));
@@ -190,6 +206,10 @@ public class Helpers {
 
     }
 
+    /**
+     * METODO QUE REGRESA UN PROGRESS PERSONALIZADO
+     * @return
+     */
     public static ProgressDialog customProgressDialog(){
         if (progressDialog != null){
             customProgressDialogClose();
@@ -199,6 +219,10 @@ public class Helpers {
 
     }
 
+    /**
+     * METODO QUE CIERRA UN PROGRESS PERSONALIZADO
+     * @return
+     */
     public static void customProgressDialogClose() {
         if ((progressDialog != null) && progressDialog.isShowing())
             progressDialog.dismiss();
@@ -206,7 +230,9 @@ public class Helpers {
     }
 
     /**
-     * METODO QUE MUESTRA UN LOADING
+     * METODO QUE REGRESA UN PROGRESS PERSONALIZADO
+     * @param title
+     * @param message
      */
     public static void progressDialogLoadingShow(String title, String message){
         // SI EL LOADING ES DIFERENTE DE NULO, LO CERRAMOS
@@ -240,6 +266,11 @@ public class Helpers {
         }
     }
 
+    /**
+     * METODO QUE LEE UN ARCHIVO/DIRECTORIO
+     * @param path
+     * @return
+     */
     public static String readFile(String path){
         String jString = null;
         try {
@@ -265,8 +296,11 @@ public class Helpers {
 
     }
 
-
-
+    /**
+     * METODO QUE VERIFICA SI EL ARCHIVO/DIRECTORIO EXISTE
+     * @param filename
+     * @return
+     */
     public static boolean isFileExistsPublicDir(String filename){
         File folder1 = new File(Environment.
                 getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath(),
@@ -274,6 +308,11 @@ public class Helpers {
         return folder1.exists();
     }
 
+    /**
+     * METODO QUE BORRA UN ARCHIVO/DIRECTORIO EXISTENTE
+     * @param filename
+     * @return
+     */
     public static boolean deleteFilePublicDir(String filename){
         File folder1 = new File(Environment.
                 getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath(),
@@ -281,16 +320,30 @@ public class Helpers {
         return folder1.delete();
     }
 
+    /**
+     * METODO QUE VERIFICA SI EL PAQUETE DEL ARCHIVO/DIRECTORIO EXISTE
+     * @param filename
+     * @return
+     */
     public static boolean isFileExistsPackage(String filename){
         File folder1 = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + filename);
         return folder1.exists();
     }
 
+    /**
+     * METODO QUE BORRA EL PAQUETE DE UN ARCHIVO/DIRECTORIO EXISTENTE
+     * @param filename
+     * @return
+     */
     public static boolean deleteFilePackage(String filename){
         File folder1 = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + filename);
         return folder1.delete();
     }
 
+    /**
+     * METODO QUE LIMPIA LAS DESCARGAS DEL DIRECTORIO PUBLICO
+     * @param filename
+     */
     public static void cleanDownloadsPublicDir(String filename){
         if(isFileExistsPublicDir(filename)){
             Log.v(Config.LOG_TAG, "EXISTE --> BORREMOSLO");
@@ -306,6 +359,10 @@ public class Helpers {
                 getDownloadManager());
     }
 
+    /**
+     * METODO QUE LIMPIA LAS DESCARGAS DEL PAQUETE DE LA APLICACION
+     * @param filename
+     */
     public static void cleanDownloadsPackage(String filename){
         if(isFileExistsPublicDir(filename)){
             Log.v(Config.LOG_TAG, "EXISTE --> BORREMOSLO");
@@ -319,6 +376,10 @@ public class Helpers {
                 getDownloadManager());
     }
 
+    /**
+     * METODO QUE REVISA SI LA APP TIENE PERMISO DE ALMACENAMIENTO
+     * @return
+     */
     public static boolean haveStoragePermission()
     {
         Log.v(Config.LOG_TAG, "// haveStoragePermission() //\n"+"HELPERS.CLASS");
@@ -340,6 +401,15 @@ public class Helpers {
         }
     }
 
+    /**
+     * METODO QUE DESCARGA Y USA UN JSON
+     * @param url
+     * @param description
+     * @param title
+     * @param name
+     * @param publicDir
+     * @param downloadManager
+     */
     public static void useDownloadJSON(String url, String description, String title, String name,
                                        boolean publicDir, DownloadManager downloadManager) {
         Log.v(Config.LOG_TAG, "useDownloadJSON --> ");
@@ -372,6 +442,10 @@ public class Helpers {
         setMyDownloadReference(downloadManager.enqueue(request));
         // myDownloadReference = downloadManager.enqueue(request);
     }
+
+    /**
+     * METODO QUE HACE UN LLAMADO A BROADCAST
+     */
     public static void callBroadCast() {
         if (Build.VERSION.SDK_INT >= 14) {
             Log.e("-->", " >= 14");
@@ -393,7 +467,5 @@ public class Helpers {
                     Uri.parse("file://" + Environment.getExternalStorageDirectory())));
         }
     }
-
-
 
 }

@@ -17,55 +17,44 @@ import com.ednerdaza.codigoriginal.redditapplication.classes.helpers.Helpers;
 
 public class NewsWebViewClient extends WebViewClient {
 
-    @Override
-    public void onPageStarted(WebView view, String url, Bitmap favicon) {
-        super.onPageStarted(view, url, favicon);
-        Helpers.progressDialogLoadingShow("", Helpers.getActivity().getResources().
-                getString(R.string.wait_loading_news));
-    }
+    //region CONSTRUCTOR
 
-    @Override
-    public void onPageFinished(WebView view, String url) {
-        super.onPageFinished(view, url);
-        Helpers.customProgressDialogClose();
-    }
-
-    @Override
-    public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-        return super.shouldOverrideUrlLoading(view, request);
-    }
-
-    @Override
-    public void onPageCommitVisible(WebView view, String url) {
-        super.onPageCommitVisible(view, url);
-    }
-
-    @Override
-    public void onLoadResource(WebView view, String url) {
-        super.onLoadResource(view, url);
-    }
-
-    public NewsWebViewClient() {
-        super();
-    }
-
-    /*@Override
-    public boolean shouldOverrideUrlLoading(WebView view, String url) {
-        if (Uri.parse(url).getHost().equals("www.example.com")) {
-            // This is my web site, so do not override; let my WebView load the page
-            return false;
+        public NewsWebViewClient() {
+            super();
         }
-        // Otherwise, the link is not for a page on my site, so launch another Activity that handles URLs
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-        startActivity(intent);
-        return true;
-    }*/
 
-   /* @Override
-    public boolean shouldOverrideUrlLoading(WebView view, String url) {
-        view.loadUrl(url);
-        return true;
-    }*/
+    //endregion
 
+    //region METODOS WEB VIEW CLIENT
+
+        @Override
+        public void onPageStarted(WebView view, String url, Bitmap favicon) {
+            super.onPageStarted(view, url, favicon);
+            Helpers.progressDialogLoadingShow("", Helpers.getActivity().getResources().
+                    getString(R.string.wait_loading_news));
+        }
+
+        @Override
+        public void onPageFinished(WebView view, String url) {
+            super.onPageFinished(view, url);
+            Helpers.customProgressDialogClose();
+        }
+
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+            return super.shouldOverrideUrlLoading(view, request);
+        }
+
+        @Override
+        public void onPageCommitVisible(WebView view, String url) {
+            super.onPageCommitVisible(view, url);
+        }
+
+        @Override
+        public void onLoadResource(WebView view, String url) {
+            super.onLoadResource(view, url);
+        }
+
+    //endregion
 
 }

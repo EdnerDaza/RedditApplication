@@ -9,19 +9,23 @@ public class ItemEntityResponse implements Serializable  {
     public String kind;
     public DataRoot data;
 
-    public String getKind() {
-        return kind;
-    }
+    //region GETTERS Y SETTERS
 
-    public void setKind(String kind) {
-        this.kind = kind;
-    }
+        public String getKind() {
+            return kind;
+        }
 
-    public DataRoot getDataRoot() {
-        return data;
-    }
+        public void setKind(String kind) {
+            this.kind = kind;
+        }
 
-    public void setDataRoot(DataRoot data) {
-        this.data = data;
-    }
+        public DataRoot getDataRoot() {
+            return data;
+        }
+
+        public void setDataRoot(DataRoot data) {
+            this.data = data;
+        }
+
+    //endregion
 }

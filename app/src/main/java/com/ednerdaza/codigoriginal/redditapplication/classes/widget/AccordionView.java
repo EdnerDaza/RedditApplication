@@ -3,6 +3,7 @@ package com.ednerdaza.codigoriginal.redditapplication.classes.widget;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.ednerdaza.codigoriginal.redditapplication.R;
+import com.ednerdaza.codigoriginal.redditapplication.classes.utilities.Config;
 import com.ednerdaza.codigoriginal.redditapplication.classes.utilities.FontUtils;
 
 import java.util.HashMap;
@@ -42,7 +44,8 @@ public class AccordionView extends LinearLayout {
 
   public AccordionView(Context context, AttributeSet attrs) {
     super(context, attrs);
-
+      Log.v(Config.TOOGLE_TAG, "// AccordionView (context : "+context+
+              "\nattrs : "+attrs+") //\n...");
     if (attrs != null) {
       TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.accordion);
       headerLayoutId = a.getResourceId(R.styleable.accordion_header_layout_id, 0);
@@ -73,12 +76,14 @@ public class AccordionView extends LinearLayout {
   }
 
   private void assertWrappedChildrenPosition(int position) {
+      Log.v(Config.TOOGLE_TAG, "// assertWrappedChildrenPosition (position : "+position+") //\n...");
     if (wrappedChildren == null || position >= wrappedChildren.length) {
       throw new IllegalArgumentException("Cannot toggle section " + position + ".");
     }
   }
 
   public View getChildById(int id) {
+      Log.v(Config.TOOGLE_TAG, "// getChildById (id : "+id+") //\n...");
     for (int i = 0; i < wrappedChildren.length; i++) {
       View v = wrappedChildren[i].findViewById(id);
       if (v != null) {
@@ -89,10 +94,13 @@ public class AccordionView extends LinearLayout {
   }
 
   public View getSectionByChildId(int id) {
+      Log.v(Config.TOOGLE_TAG, "// getSectionByChildId (id : "+id+") //\n...");
     return sectionByChildId.get(id);
   }
 
   private View getView(final LayoutInflater inflater, int i, boolean hide) {
+      Log.v(Config.TOOGLE_TAG, "// getView (inflater : "+inflater+
+              "\ni : "+i+"\nhide : "+hide+") //\n...");
     final View container = inflater.inflate(sectionContainer, null);
     container.setLayoutParams(new ListView.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, 0));
     final ViewGroup newParent = (ViewGroup) container.findViewById(sectionContainerParent);
@@ -109,10 +117,13 @@ public class AccordionView extends LinearLayout {
   }
 
   private View getViewFooter(LayoutInflater inflater) {
+      Log.v(Config.TOOGLE_TAG, "// getViewFooter (inflater : "+inflater+") //\n...");
     return inflater.inflate(sectionBottom, null);
   }
   
   private View getViewHeader(LayoutInflater inflater, final int position, boolean hide) {
+      Log.v(Config.TOOGLE_TAG, "// getViewHeader (inflater : "+inflater+
+              "\nposition : "+position+"\nhide : "+hide+") //\n...");
     final View view = inflater.inflate(headerLayoutId, null);
     ((TextView) view.findViewById(headerLabel)).setText(sectionHeaders[position]);
 
@@ -137,7 +148,9 @@ public class AccordionView extends LinearLayout {
         toggleSection(position);
       }
     };
+
     foldButton.setOnClickListener(onClickListener);
+
     view.setOnClickListener(new OnClickListener() {
 
       @Override
@@ -158,6 +171,7 @@ public class AccordionView extends LinearLayout {
 
   @Override
   protected void onFinishInflate() {
+      Log.v(Config.TOOGLE_TAG, "// onFinishInflate () //\n...");
     if (initialized) {
       super.onFinishInflate();
       return;
@@ -211,6 +225,7 @@ public class AccordionView extends LinearLayout {
    *          {@link View#GONE} and {@link View#VISIBLE}
    */
   public int getSectionVisibility(int position) {
+      Log.v(Config.TOOGLE_TAG, "// getSectionVisibility (position : "+position+")\n...");
 	  assertWrappedChildrenPosition(position);
 	  return wrappedChildren[position].getVisibility();
   }
@@ -222,18 +237,20 @@ public class AccordionView extends LinearLayout {
    *          {@link View#GONE} and {@link View#VISIBLE}
    */
   public void setSectionVisibility(int position, int visibility) {
-    assertWrappedChildrenPosition(position);
-    wrappedChildren[position].setVisibility(visibility);
-    if (headerFoldButton != 0) {
-    	final View foldButton = headers[position].findViewById(headerFoldButton);
-    	if (foldButton instanceof ToggleImageLabeledButton) {
-    	  final ToggleImageLabeledButton toggleButton = (ToggleImageLabeledButton) foldButton;
-    	  toggleButton.setState(wrappedChildren[position].getVisibility() == VISIBLE);
-    	}
-    }
+      Log.v(Config.TOOGLE_TAG, "// setSectionVisibility (position : "+position+"\nvisibility : "+visibility+") //\n...");
+      assertWrappedChildrenPosition(position);
+      wrappedChildren[position].setVisibility(visibility);
+      if (headerFoldButton != 0) {
+          final View foldButton = headers[position].findViewById(headerFoldButton);
+          if (foldButton instanceof ToggleImageLabeledButton) {
+              final ToggleImageLabeledButton toggleButton = (ToggleImageLabeledButton) foldButton;
+              toggleButton.setState(wrappedChildren[position].getVisibility() == VISIBLE);
+          }
+      }
   }
 
   public void toggleSection(int position) {
+      Log.v(Config.TOOGLE_TAG, "// toggleSection (position : "+position+")\n...");
     assertWrappedChildrenPosition(position);
 
     if (wrappedChildren[position].getVisibility() == VISIBLE) {
@@ -250,6 +267,7 @@ public class AccordionView extends LinearLayout {
    *          {@link View#GONE} and {@link View#VISIBLE}
    */
   public void setChildVisibility(int position, int visibility) {
+      Log.v(Config.TOOGLE_TAG, "// setChildVisibility (position : "+position+"\nvisibility : "+visibility+") //\n...");
 	  assertWrappedChildrenPosition(position);
 	  sectionContainers[position].setVisibility(visibility);
   }

@@ -13,12 +13,21 @@ import com.ednerdaza.codigoriginal.redditapplication.R;
  */
 public class DetailActivityFragment extends Fragment {
 
-    public DetailActivityFragment() {
-    }
+    //region CONSTRUCTOR
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_detail, container, false);
-    }
+        public DetailActivityFragment() {
+        }
+
+    //endregion
+
+    //region METODOS FRAGMENT
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+            return inflater.inflate(R.layout.fragment_detail, container, false);
+        }
+
+    //endregion
+
 }

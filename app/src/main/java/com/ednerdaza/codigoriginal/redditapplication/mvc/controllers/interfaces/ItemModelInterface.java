@@ -5,7 +5,11 @@ package com.ednerdaza.codigoriginal.redditapplication.mvc.controllers.interfaces
  */
 public interface ItemModelInterface<T> {
 
-    public void completeSuccess(T entity);
-    public void completeFail(String message);
+    //region METODOS DEL INTERFACE
+
+        public void completeSuccess(T entity);
+        public void completeFail(String message);
+
+    //endregion
 
 }

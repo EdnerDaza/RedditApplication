@@ -6,10 +6,12 @@ package com.ednerdaza.codigoriginal.redditapplication.classes.widget;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.ednerdaza.codigoriginal.redditapplication.R;
+import com.ednerdaza.codigoriginal.redditapplication.classes.utilities.Config;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -20,7 +22,10 @@ public class ToggleImageLabeledButton extends ImageView {
   private AtomicBoolean on = new AtomicBoolean(false);
 
   public ToggleImageLabeledButton(Context context, AttributeSet attrs) {
-    super(context, attrs);
+      super(context, attrs);
+
+      Log.v(Config.LOG_TAG, "// ToggleImageLabeledButton (context : "+context+
+              "\nattrs : "+attrs+") //\n...");
 
     if (attrs != null) {
       TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.image_labeled_button, 0, 0);
@@ -33,6 +38,7 @@ public class ToggleImageLabeledButton extends ImageView {
   }
 
   private void handleNewState(boolean newState) {
+    Log.v(Config.LOG_TAG, "// handleNewState (newState : "+newState+") //\n...");
     if (newState) {
       setImageResource(imageOn);
     } else {
@@ -46,6 +52,8 @@ public class ToggleImageLabeledButton extends ImageView {
 
       public void onClick(View v) {
         boolean newState = !on.get();
+        Log.v(Config.LOG_TAG, "// onClick (View : "+v+") //\n...");
+        Log.v(Config.LOG_TAG, "// newState : "+newState+" //\n...");
         on.set(newState);
         handleNewState(newState);
         l.onClick(v);
@@ -57,6 +65,7 @@ public class ToggleImageLabeledButton extends ImageView {
   }
 
   public void setState(boolean b) {
+    Log.v(Config.LOG_TAG, "// setState (b : "+b+") //\n...");
     on.set(b);
     handleNewState(b);
   }

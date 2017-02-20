@@ -7,6 +7,10 @@ import com.ednerdaza.codigoriginal.redditapplication.mvc.models.entities.Childre
  */
 public interface DelegateItemAdapter {
 
-    public void onItemClicked(Children children);
+    //region METODOS DEL DELEGATE
+
+        public void onItemClicked(Children children);
+
+    //endregion
 
 }

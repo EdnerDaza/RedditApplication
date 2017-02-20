@@ -14,36 +14,44 @@ import com.ednerdaza.codigoriginal.redditapplication.classes.helpers.Helpers;
 
 public class CommentsWebViewClient extends WebViewClient {
 
-    @Override
-    public void onPageStarted(WebView view, String url, Bitmap favicon) {
-        super.onPageStarted(view, url, favicon);
-        Helpers.progressDialogLoadingShow("", Helpers.getActivity().getResources()
-                .getString(R.string.wait_loading_comments));
-    }
-
-    @Override
-    public void onPageFinished(WebView view, String url) {
-        super.onPageFinished(view, url);
-        Helpers.customProgressDialogClose();
-    }
-
-    @Override
-    public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-        return super.shouldOverrideUrlLoading(view, request);
-    }
-
-    @Override
-    public void onPageCommitVisible(WebView view, String url) {
-        super.onPageCommitVisible(view, url);
-    }
-
-    @Override
-    public void onLoadResource(WebView view, String url) {
-        super.onLoadResource(view, url);
-    }
+    //region CONSTRUCTOR
 
     public CommentsWebViewClient() {
         super();
     }
+
+    //endregion
+
+    //region METODOS WEB VIEW CLIENT
+
+        @Override
+        public void onPageStarted(WebView view, String url, Bitmap favicon) {
+            super.onPageStarted(view, url, favicon);
+            Helpers.progressDialogLoadingShow("", Helpers.getActivity().getResources()
+                    .getString(R.string.wait_loading_comments));
+        }
+
+        @Override
+        public void onPageFinished(WebView view, String url) {
+            super.onPageFinished(view, url);
+            Helpers.customProgressDialogClose();
+        }
+
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+            return super.shouldOverrideUrlLoading(view, request);
+        }
+
+        @Override
+        public void onPageCommitVisible(WebView view, String url) {
+            super.onPageCommitVisible(view, url);
+        }
+
+        @Override
+        public void onLoadResource(WebView view, String url) {
+            super.onLoadResource(view, url);
+        }
+
+    //endregion
 
 }

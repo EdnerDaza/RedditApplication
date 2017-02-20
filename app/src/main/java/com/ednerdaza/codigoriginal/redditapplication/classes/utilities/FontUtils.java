@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 public class FontUtils {
+
   public static final String TAG_LIGHT = "light";
 
   public static final String TAG_CONDENSED = "condensed";

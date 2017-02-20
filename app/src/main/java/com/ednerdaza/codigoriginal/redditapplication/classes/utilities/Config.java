@@ -6,6 +6,7 @@ package com.ednerdaza.codigoriginal.redditapplication.classes.utilities;
 public class Config {
 
     public final static String LOG_TAG = "LOG_TAG_REDDIT";
+    public final static String TOOGLE_TAG = "TOOGLE_TAG_REDDIT";
     public final static String BASE_URL = "https://www.reddit.com/";
     public final static String BASE_R = "r/";
     public final static String BASE_NEWS = "news/";

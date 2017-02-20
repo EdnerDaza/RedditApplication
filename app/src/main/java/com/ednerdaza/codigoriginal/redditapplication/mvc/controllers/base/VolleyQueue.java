@@ -37,7 +37,6 @@ public class VolleyQueue extends Application {
 
     }
 
-
     public static void cancelAll(String tag){
         getRequestQueue().cancelAll(tag);
     }
