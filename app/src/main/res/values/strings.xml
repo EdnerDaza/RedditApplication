@@ -36,4 +36,16 @@
     <string name="paused_download">PAUSED DOWNLOAD</string>
     <string name="pending_download">PENDING! DOWNLOAD</string>
     <string name="running_download">RUNNING! DOWNLOAD</string>
+    <string name="title_activity_detail">News Details</string>
+
+    <string-array name="accordion_sections">
+        <item>News</item>
+        <item>Comments</item>
+    </string-array>
+
+    <integer-array name="accordion_visibility">
+        <item>1</item>
+        <item>0</item>
+    </integer-array>
+
 </resources>

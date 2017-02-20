@@ -23,6 +23,7 @@ import android.widget.TextView;
 
 import com.ednerdaza.codigoriginal.redditapplication.R;
 import com.ednerdaza.codigoriginal.redditapplication.classes.utilities.Config;
+import com.ednerdaza.codigoriginal.redditapplication.mvc.controllers.activities.MainActivity;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -203,6 +204,23 @@ public class Helpers {
             progressDialog.dismiss();
         progressDialog = null;
     }
+
+    /**
+     * METODO QUE MUESTRA UN LOADING
+     */
+    public static void progressDialogLoadingShow(String title, String message){
+        // SI EL LOADING ES DIFERENTE DE NULO, LO CERRAMOS
+        if (progressDialog != null){
+            customProgressDialogClose();
+        }
+        // Y CREAMOS UNO NUEVO
+        progressDialog = new ProgressDialog(getActivity()).show(getActivity(),
+                title,
+                message,
+                true,
+                false);
+    }
+
     /**
      * METODO QUE REVISA SI HAY CONEXION A INTERNET Y SI NO DEVUELVE UN DIALOG
      * @param context

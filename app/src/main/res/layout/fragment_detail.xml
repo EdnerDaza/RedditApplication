@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:accordion="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/content_detail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ednerdaza.codigoriginal.redditapplication.mvc.controllers.fragments.DetailActivityFragment"
+    tools:showIn="@layout/activity_detail">
+
+    <com.ednerdaza.codigoriginal.redditapplication.classes.widget.AccordionView
+                android:id="@+id/accordion_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                accordion:header_layout_fold_button_id="@id/foldButton"
+                accordion:header_layout_id="@layout/accordion_header"
+                accordion:header_layout_label_id="@id/foldText"
+                accordion:section_bottom="@layout/accordion_footer"
+                accordion:section_container="@layout/accordion_section"
+                accordion:section_container_parent="@id/section_content"
+                accordion:section_headers="@array/accordion_sections"
+                accordion:section_visibility="@array/accordion_visibility"
+                android:background="#fff5f5f5"
+                android:orientation="vertical" >
+
+                <WebView
+                    android:id="@+id/webviewNews"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <WebView
+                    android:id="@+id/webviewComments"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+        </com.ednerdaza.codigoriginal.redditapplication.classes.widget.AccordionView>
+
+</RelativeLayout>

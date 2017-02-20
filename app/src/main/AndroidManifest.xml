@@ -10,6 +10,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
+        android:launchMode="singleTop"
         android:theme="@style/AppTheme">
         <activity
             android:name=".mvc.controllers.activities.SplashActivity"
@@ -27,8 +28,17 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".mvc.controllers.activities.DetailActivity"
+            android:label="@string/title_activity_detail"
+            android:parentActivityName=".mvc.controllers.activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.ednerdaza.codigoriginal.redditapplication.mvc.controllers.activities.MainActivity" />
         </activity>
     </application>
 

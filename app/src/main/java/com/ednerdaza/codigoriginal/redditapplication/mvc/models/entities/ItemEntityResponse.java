@@ -7,7 +7,7 @@ import java.io.Serializable;
  */
 public class ItemEntityResponse implements Serializable  {
     public String kind;
-    public DataRoot dataRoot;
+    public DataRoot data;
 
     public String getKind() {
         return kind;
@@ -18,10 +18,10 @@ public class ItemEntityResponse implements Serializable  {
     }
 
     public DataRoot getDataRoot() {
-        return dataRoot;
+        return data;
     }
 
-    public void setDataRoot(DataRoot dataRoot) {
-        this.dataRoot = dataRoot;
+    public void setDataRoot(DataRoot data) {
+        this.data = data;
     }
 }

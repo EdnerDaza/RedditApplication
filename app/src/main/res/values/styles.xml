@@ -35,8 +35,7 @@
         <item name="android:actionBarWidgetTheme">@style/actionBarWidget</item>
     </style>
 
-    <style name="actionBarWidget"
-        parent="android:Theme.Holo.Light.DarkActionBar">
+    <style name="actionBarWidget" parent="android:Theme.Holo.Light.DarkActionBar">
         <item name="android:popupMenuStyle">@style/PopupMenuStyle</item>
         <item name="android:dropDownListViewStyle">@style/DropdownListViewStyle</item>
     </style>
